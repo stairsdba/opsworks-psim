@@ -1,0 +1,69 @@
+
+################################################################################
+# PrinterOn Server Software Licensing Information
+#
+#
+# You may be asked to locate this file when installing
+#     your server software.
+#
+# This file contains your confidential licensing keys and 
+#     configuration information for your PrinterOn solution.  
+#     The information is provided to:
+#       PrinterOn Admin <mailto:jstairs@printeron.com>
+#      solely for use at:
+#           bambootest 
+#
+# Created: Tue Jun 28 13:36:58 EDT 2016
+# 
+# bambootest LICENSE FILE
+
+MD5 = 359681b785deb5f2fa04b9dd05d36c63
+
+[License]
+Version = 2.0
+Type = Printer
+Edition = Enterprise
+Start = 1467135418257
+End = 1498578478000
+ValidationURL = https://secure1.printeron.net/api/restful/v1/license/hashValidate
+Printers = 3
+PDH = 3
+PAS = 3
+PQMS = true
+AdvLDAP = true
+AdvReporting = true
+Archiving = false
+SAP = false
+Domino = true
+On-Premise = true
+Category = CUST
+ReleaseAnywhere = false
+Equitrac = false
+AAAAPI = true
+
+
+[Site]
+APIsiteUID = 570909365789
+APIsiteAuth = yAJm7Zn5
+AdminEmail = jstairs@printeron.com
+
+[PrintAnywhere] 
+Name.1=Enterprise PrintAnywhere Server
+SerialNumber.1=HMNJ-Y054-XWD6
+
+
+[PrintDeliveryStation]
+Name.1=bambootest
+SerialNumber.1=1YMW-0HDJ-3M2H
+
+
+[PrintDeliveryHub]
+Name.1=bambootest-pdh
+SerialNumber.1=XHAK-20NV-Q5CR
+
+
+[Config]
+ServicesAPIURL = https://secure1.printeron.net/
+ServiceURL = http://127.0.0.1/cps
+DeploymentMode = On-Premise
+InternalServiceURL= 

@@ -1,0 +1,43 @@
+{
+  "name": "psim",
+  "description": "Installs/Configures psim",
+  "long_description": "Installs/Configures psim",
+  "maintainer": "Jonathan Stairs",
+  "maintainer_email": "jstairs@printeron.com",
+  "license": "all_rights",
+  "platforms": {
+  },
+  "dependencies": {
+    "vc2013": ">= 0.0.0",
+    "ms_dotnet35": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.1.0",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}
