@@ -11,20 +11,20 @@
 #     The information is provided to:
 #       PrinterOn Admin <mailto:jstairs@printeron.com>
 #      solely for use at:
-#           bambootest 
+#           opsworks-test 
 #
-# Created: Tue Jun 28 13:36:58 EDT 2016
+# Created: Fri Aug 12 15:13:13 EDT 2016
 # 
-# bambootest LICENSE FILE
+# opsworks-test LICENSE FILE
 
-MD5 = 359681b785deb5f2fa04b9dd05d36c63
+MD5 = 3e4ff8720f75ec0d021ecbe28dde117e
 
 [License]
 Version = 2.0
 Type = Printer
 Edition = Enterprise
-Start = 1467135418257
-End = 1498578478000
+Start = 1471029193576
+End = 1502564864000
 ValidationURL = https://secure1.printeron.net/api/restful/v1/license/hashValidate
 Printers = 3
 PDH = 3
@@ -40,26 +40,31 @@ Category = CUST
 ReleaseAnywhere = false
 Equitrac = false
 AAAAPI = true
+Pricing= true
 
 
 [Site]
-APIsiteUID = 570909365789
-APIsiteAuth = yAJm7Zn5
+APIsiteUID = 510307245793
+APIsiteAuth = ZF42WStr
 AdminEmail = jstairs@printeron.com
 
 [PrintAnywhere] 
-Name.1=Enterprise PrintAnywhere Server
-SerialNumber.1=HMNJ-Y054-XWD6
+Name.1=box 2
+SerialNumber.1=WYC7-RJHN-TT4B
+Name.2=Enterprise PrintAnywhere Server
+SerialNumber.2=CUK4-KK4M-3RFB
 
 
 [PrintDeliveryStation]
-Name.1=bambootest
-SerialNumber.1=1YMW-0HDJ-3M2H
+Name.1=opsworks-test
+SerialNumber.1=NAQ0-3P8F-2BC2
 
 
 [PrintDeliveryHub]
-Name.1=bambootest-pdh
-SerialNumber.1=XHAK-20NV-Q5CR
+Name.1=pdh1
+SerialNumber.1=W890-AQTX-AHDF
+Name.2=pdh2
+SerialNumber.2=HJGB-K51K-1KDH
 
 
 [Config]
