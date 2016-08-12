@@ -9,32 +9,21 @@ cookbook_file 'license.txt' do
 	action :create
 end
 
-user 'vagrant' do
-   username 'vagrant'
-   password 'v@ngrAnt!'
-   action :create
-end
-
-group 'Administrators' do
-  members ["#{node['hostname']}\\vagrant"]
-  append true
-  action :modify
-end
-
 include_recipe 'vc2013'
 
 include_recipe 'ms_dotnet35'
 
 remote_file 'PSIM.exe' do
-   source "https://s3.amazonaws.com/chef-psim/PSIM.exe"
+   source node['psim']['installer_url']
    notifies :install, 'windows_package[psim]', :immediately
 end
 
 windows_package 'psim' do
     installer_type :custom
     source 'c:\PSIM.exe'
-    options "\"Mode:Auto|InstallType:Install|ConfigFile:C:\\license.txt|UserName:#{node['hostname']}\\vagrant|Password:v@ngrAnt!|PASKey:HMNJ-Y054-XWD6|PDSKey:1YMW-0HDJ-3M2H|PDHKey:XHAK-20NV-Q5CR\""
-    timeout 7200
+    options "\"Mode:Auto|InstallType:Install|ConfigFile:C:\\license.txt|UserName:#{node['hostname']}\\vagrant|Password:v@ngrAnt!|PASKey:#{node['psim']['serialnbr']['pas']}|PDSKey:#{node['psim']['serialnbr']['pds']}|PDHKey:#{node['psim']['serialnbr']['pdh']}\""
+	returns [3010, 0]
+	timeout 7200
     action :nothing
 end
 
