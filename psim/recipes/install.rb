@@ -4,6 +4,8 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
+node.default['psim']['hostname'] = node['hostname']
+
 cookbook_file 'license.txt' do
     source 'license.txt'
 	action :create

@@ -13,17 +13,17 @@
 #      solely for use at:
 #           opsworks-test 
 #
-# Created: Fri Aug 12 15:13:13 EDT 2016
+# Created: Fri Aug 12 15:32:55 EDT 2016
 # 
 # opsworks-test LICENSE FILE
 
-MD5 = 3e4ff8720f75ec0d021ecbe28dde117e
+MD5 = ddd96400d50d31bcb9302d0db66da0b3
 
 [License]
 Version = 2.0
 Type = Printer
 Edition = Enterprise
-Start = 1471029193576
+Start = 1471030375564
 End = 1502564864000
 ValidationURL = https://secure1.printeron.net/api/restful/v1/license/hashValidate
 Printers = 3
@@ -58,6 +58,8 @@ SerialNumber.2=CUK4-KK4M-3RFB
 [PrintDeliveryStation]
 Name.1=opsworks-test
 SerialNumber.1=NAQ0-3P8F-2BC2
+Name.2=pds-2
+SerialNumber.2=7XQ1-W47E-45C2
 
 
 [PrintDeliveryHub]
