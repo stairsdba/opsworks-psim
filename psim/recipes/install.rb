@@ -21,8 +21,8 @@ end
 windows_package 'psim' do
     installer_type :custom
     source 'c:\PSIM.exe'
-    options "\"Mode:Auto|InstallType:Install|ConfigFile:C:\\license.txt|UserName:#{node['hostname']}\\vagrant|Password:v@ngrAnt!|PASKey:#{node['psim']['serialnbr']['pas']}|PDSKey:#{node['psim']['serialnbr']['pds']}|PDHKey:#{node['psim']['serialnbr']['pdh']}\""
-	returns [3010, 0]
+    options "\"Mode:Auto|InstallType:Install|ConfigFile:C:\\license.txt|UserName:#{node['hostname']}\\vagrant|Password:v@ngrAnt!|PASKey:#{node['psim'][node['psim']['hostname']]['serialnbr']['pas']}|PDSKey:#{node['psim'][node['psim']['hostname']]['serialnbr']['pds']}|PDHKey:#{node['psim'][node['psim']['hostname']]['serialnbr']['pdh']}\""
+	#returns [3010, 0]
 	timeout 7200
     action :nothing
 end
