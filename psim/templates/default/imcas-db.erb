@@ -1,0 +1,26 @@
+###############################################################################################################
+# This is unit test configuration of connections to CPS database.                                             #
+###############################################################################################################
+
+flyway.db.scripts.locations=classpath:db/jpa/mssql/patches
+jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
+jdbc.url=jdbc:sqlserver://localhost;instanceName=CPSDB;databaseName=imcas;integratedSecurity=true;
+jdbc.user=cpsuser
+jdbc.password=cps!user
+jdbc.databaseType=MSSQL
+
+hibernate.dialect=com.samsung.imcas.jpa.hibernate.SQLServer2012Dialect
+hibernate.hbm2ddl.auto=validate
+hibernate.show_sql=false
+
+# Connection pooling
+c3p0.checkoutTimeout=0
+c3p0.minPoolSize=3
+c3p0.maxPoolSize=15
+c3p0.acquireIncrement=3
+c3p0.maxIdleTime=3600
+c3p0.idleConnectionTestPeriod=300
+c3p0.testConnectionOnCheckout=false
+c3p0.testConnectionOnCheckin=false
+c3p0.preferredTestQuery=select 1
+c3p0.acquireRetryAttempts=-1

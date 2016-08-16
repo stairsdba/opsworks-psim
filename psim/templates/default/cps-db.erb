@@ -1,0 +1,43 @@
+###############################################################################################################
+# This is production configuration of connections to CPS database.                                            #
+# File must be copied into <tomcat-dir>/lib/cps-db.properties during installation process.                    #
+###############################################################################################################
+
+flyway.db.scripts.locations=classpath:db/jpa/mssql/patches
+
+jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
+jdbc.url=<%= @connection_url %>
+jdbc.user=<%= @db_user %>
+jdbc.password=<%= @db_password %>
+
+# To preserve time zone changes while using dateTime(|2) mapping, timestamp converter should be UtcTimestampConverter together with
+# com.samsung.cps.db.jpa.hibernate.SqlServer2012Dialect as hibernate dialect.
+jdbc.timestampConverter=com.samsung.cps.db.jpa.hibernate.UtcTimestampConverter
+
+jdbc.databaseType=MSSQL
+
+# However if dateTimeOffset mapping is used, timestamp converter should be SqlServerDateTimeOffsetConverter together with
+# com.samsung.cps.db.jpa.hibernate.SqlServer2012DialectWithTimestampAsDateTimeOffset as hibernate dialect (see below). Please note that
+# SqlServerDateTimeOffsetConverter works only with C3P0 pool or without any connection pooling.
+#jdbc.timestampConverter=com.samsung.cps.db.jpa.hibernate.SqlServerDateTimeOffsetConverter
+
+# To store time as localtime in dateTime(|2) columns (not to preserve time zone changes between servers running cps and database) timestamp converter
+# should be LocalTimestampConverter together with com.samsung.cps.db.jpa.hibernate.SqlServer2012Dialect as hibernate dialect.
+#jdbc.timestampConverter=com.samsung.cps.db.jpa.hibernate.LocalTimestampConverter
+
+hibernate.dialect=com.samsung.cps.db.jpa.hibernate.SqlServer2012Dialect
+#hibernate.dialect=com.samsung.cps.db.jpa.hibernate.SqlServer2012DialectWithTimestampAsDateTimeOffset
+hibernate.hbm2ddl.auto=validate
+hibernate.show_sql=false
+
+# Connection pooling
+c3p0.checkoutTimeout=180000
+c3p0.minPoolSize=3
+c3p0.maxPoolSize=15
+c3p0.acquireIncrement=3
+c3p0.maxIdleTime=3600
+c3p0.idleConnectionTestPeriod=300
+c3p0.testConnectionOnCheckout=false
+c3p0.testConnectionOnCheckin=false
+c3p0.preferredTestQuery=select 1
+c3p0.acquireRetryAttempts=-1
