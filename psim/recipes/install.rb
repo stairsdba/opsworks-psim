@@ -11,6 +11,18 @@ cookbook_file 'license.txt' do
 	action :create
 end
 
+user 'vagrant' do
+   username 'vagrant'
+   password 'v@ngrAnt!'
+   action :create
+end
+
+group 'Administrators' do
+  members ["#{node['hostname']}\\vagrant"]
+  append true
+  action :modify
+end
+
 include_recipe 'vc2013'
 
 include_recipe 'ms_dotnet35'
