@@ -1,0 +1,142 @@
+<cpsConfig version="3.2" build="24" ponConfId="988c3ce6-8b01-4d67-9f60-a26dc24e627d">
+  <serviceName>PrinterOn Printing Service</serviceName>
+  <passwordHint />
+  <autoSaveEnabled>1</autoSaveEnabled>
+  <ponApiUri>https://secure1.printeron.net</ponApiUri>
+  <pasApiUri>http://localhost/PasServlet/PasServlet</pasApiUri>
+  <siteCredentials siteUid="510307245793" siteAuth="ZF42WStr" />
+  <printerAdmin email="jstairs@printeron.com" />
+  <log level="3" showContextPath="0" />
+  <locale language="en" variant="US" />
+  <useJsse>true</useJsse>
+  <forceRedirectProtocol protocol="auto" />
+  <disablePopups>1</disablePopups>
+  <lastSynchTime>1471465355337</lastSynchTime>
+  <skipPrinterScreen>0</skipPrinterScreen>
+  <coverPageOptions>
+    <recipientField enabled="0" fieldToUse="networkLogin" />
+  </coverPageOptions>
+  <languages num="1">
+    <language lang="en" name="US" />
+  </languages>
+  <guestLdapSettings enabled="false" behavior="0" uniqueEnabled="false">
+    <defaultUID>Guest</defaultUID>
+    <prefix prefixEnabled="false">Guest</prefix>
+  </guestLdapSettings>
+  <discoverySettings enabled="true" />
+  <authenticateSearch>0</authenticateSearch>
+  <allowPublicSearch>0</allowPublicSearch>
+  <allowPublicSearchGuest>0</allowPublicSearchGuest>
+  <enableCPSDirsearch>1</enableCPSDirsearch>
+  <enableWebPrint>1</enableWebPrint>
+  <proxy enabled="0" address="proxy.company.com" port="80" />
+  <vertical>Campus</vertical>
+  <serviceURL>http://127.0.0.1/cps</serviceURL>
+  <authentication>
+    <method type="nologin" enabled="true" />
+    <method type="ldap:login" enabled="false">
+      <ldaps>
+        <ldap>
+          <name>Default</name>
+          <type>ldap:lookup</type>
+          <use>false</use>
+          <uri>ldap://yourldap.com:389</uri>
+          <bindDn>bindDn</bindDn>
+          <bindPw />
+          <searchDn>DC=company,DC=local</searchDn>
+          <userEmailAttrib>mail</userEmailAttrib>
+          <ssl enabled="false" doCertVerification="true" />
+          <userIdAttrib>samAccountName</userIdAttrib>
+          <domainName>company.com</domainName>
+          <ntDomainName />
+          <ntDomainPrepend>false</ntDomainPrepend>
+          <accessGroupDn inclusive="true" />
+          <referral>true</referral>
+          <emailLookUpWildCard>false</emailLookUpWildCard>
+          <prependSmtp>false</prependSmtp>
+          <telephoneNumber>telephoneNumber</telephoneNumber>
+          <firstName>givenName</firstName>
+          <surname>sn</surname>
+          <displayName>displayName</displayName>
+          <bindUser>true</bindUser>
+        </ldap>
+      </ldaps>
+      <webAuth enabled="false" />
+      <trustedPrint behavior="2" />
+    </method>
+    <method type="remotelogin" enabled="false" />
+    <method type="printeron" enabled="false" />
+  </authentication>
+  <ldapDepartmentSettings behavior="0" />
+  <jobTimeOut>2</jobTimeOut>
+  <seed>50000</seed>
+  <timerDelay>-1</timerDelay>
+  <sendNetworkLogin>true</sendNetworkLogin>
+  <sendUserEmail>false</sendUserEmail>
+  <sendUserPassword>false</sendUserPassword>
+  <enableSSLVerify>true</enableSSLVerify>
+  <secureReleaseAnywhere>false</secureReleaseAnywhere>
+  <overrideDocApiUrl>false</overrideDocApiUrl>
+  <docApiUrl />
+  <connectionType>3</connectionType>
+  <skipDocApiPrinterValidation>false</skipDocApiPrinterValidation>
+  <backupReportsLocally>false</backupReportsLocally>
+  <ldapEmailLookUpTemplate>%1</ldapEmailLookUpTemplate>
+  <ldapSearchTimeout>10000</ldapSearchTimeout>
+  <ldapClientTimeout>10000</ldapClientTimeout>
+  <printDeliveryStations>
+    <printDeliveryStation>
+      <name>pds-2</name>
+      <serialNum>7XQ1-W47E-45C2</serialNum>
+      <default>true</default>
+    </printDeliveryStation>
+    <printDeliveryStation>
+      <name>opsworks-test</name>
+      <serialNum>NAQ0-3P8F-2BC2</serialNum>
+      <default>false</default>
+    </printDeliveryStation>
+  </printDeliveryStations>
+  <printAnywhereServers>
+    <printAnywhereServer>
+      <name>box 2</name>
+      <serialNum>WYC7-RJHN-TT4B</serialNum>
+    </printAnywhereServer>
+    <printAnywhereServer>
+      <name>Enterprise PrintAnywhere Server</name>
+      <serialNum>CUK4-KK4M-3RFB</serialNum>
+    </printAnywhereServer>
+  </printAnywhereServers>
+  <printDeliveryHubs>
+    <printDeliveryHub>
+      <name>pdh1</name>
+      <serialNum>W890-AQTX-AHDF</serialNum>
+    </printDeliveryHub>
+    <printDeliveryHub>
+      <name>pdh2</name>
+      <serialNum>HJGB-K51K-1KDH</serialNum>
+    </printDeliveryHub>
+  </printDeliveryHubs>
+  <webPrintDepartments>false</webPrintDepartments>
+  <defaultPrinterTablePageLength>10</defaultPrinterTablePageLength>
+  <defaultDepartmentTablePageLength>10</defaultDepartmentTablePageLength>
+  <imcasBaseUrl>https://127.0.0.1/imcas</imcasBaseUrl>
+  <imcasClientId>88849C67F098753D0FD10EE74136221F6B42560B930925DC7ADFCB8EDCF31554</imcasClientId>
+  <imcasClientSecret>XpT%2BO4hRnrWJesmcUC02VLLP3sJPoU6a7NGodnt1dqVSvyAfsGxYDuFWdEGd8goKta81GKpNXcXUvv6S4dlngBPyiN1luhdb7%2BfXw%2BFOL5I%3D</imcasClientSecret>
+  <contentStorage>
+    <provider>aws-s3</provider>
+    <useVirtualHostBuckets>false</useVirtualHostBuckets>
+    <servicePath>/s3</servicePath>
+    <storageEndpoint>http://localhost:9444/s3</storageEndpoint>
+    <identity>AKIAIOSFODNN7EXAMPLE</identity>
+    <credential>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</credential>
+    <containerName>content-storage</containerName>
+    <maxFileSizeMb>50</maxFileSizeMb>
+  </contentStorage>
+  <oauth2>
+    <appInfoAdminKeyHash>e9fe2cda28e134c402ae4c075d760694c890dedf7dabfc3f1f9743fc5ea4e4d8</appInfoAdminKeyHash>
+  </oauth2>
+  <reporting>
+    <scheduler enabled="false" cron="0 0 2 * * *" />
+  </reporting>
+  <functionalityPermissions />
+</cpsConfig>

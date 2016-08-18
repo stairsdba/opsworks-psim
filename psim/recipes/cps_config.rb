@@ -66,6 +66,12 @@ end
 # Configure cps to connect to the RDS database
 rds_db_instance = search("aws_opsworks_rds_db_instance").first
 
+cookbook_file 'cps_config.xml' do
+    source 'cps_config.xml'
+    path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\cps_config.xml"
+    action :create
+end
+
 template 'cps-db.properties' do
   source 'cps-db.erb'
   path "#{node['psim']['install_dir']}\\Apache Tomcat\\lib\\cps-db.properties"

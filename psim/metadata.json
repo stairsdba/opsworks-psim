@@ -10,6 +10,7 @@
   "dependencies": {
     "vc2013": ">= 0.0.0",
     "ms_dotnet35": ">= 0.0.0"
+	"aws": ">= 0.0.0"
   },
   "recommendations": {
   },
