@@ -65,8 +65,10 @@ end
 
 # Configure cps to connect to the RDS database
 rds_db_instance = search("aws_opsworks_rds_db_instance").first
-template 'C:\Program Files (x86)\PrinterOn Corporation\Apache Tomcat\lib\cps-db.properties' do
+
+template 'cps-db.properties' do
   source 'cps-db.erb'
+  path "#{node['psim']['install_dir']}\\Apache Tomcat\\lib\\cps-db.properties"
   variables({
     :connection_url => "jdbc:sqlserver://#{rds_db_instance['address']}:#{rds_db_instance['port']};instanceName=#{rds_db_instance['db_instance_identifier']};databaseName=cpsdb;",
     :db_user => "#{rds_db_instance['db_user']}",
@@ -74,12 +76,26 @@ template 'C:\Program Files (x86)\PrinterOn Corporation\Apache Tomcat\lib\cps-db.
   })
 end
 
-template 'C:\Program Files (x86)\PrinterOn Corporation\Apache Tomcat\lib\imcas-db.properties' do
+template 'imcas-db.properties' do
   source 'imcas-db.erb'
+  path "#{node['psim']['install_dir']}\\Apache Tomcat\\lib\\imcas-db.properties"
   variables({
     :connection_url => "jdbc:sqlserver://#{rds_db_instance['address']}:#{rds_db_instance['port']};instanceName=#{rds_db_instance['db_instance_identifier']};databaseName=imcas;",
     :db_user => "#{rds_db_instance['db_user']}",
     :db_password => "#{rds_db_instance['db_password']}"    
   })
+  
+end
+
+template 'server.xml' do
+  source 'server.erb'
+  path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\server.xml"
+  variables({
+    :cps_http_port => "#{node['psim']['cps']['http_port']}",
+    :cps_https_port => "#{node['psim']['cps']['https_port']}",
+    :cps_ssl_protocols => "#{node['psim']['cps']['sslProtocols']}",
+    :cps_keystore_settings => "#{node['psim']['cps']['keystoreSettings']}"
+  })
   notifies :restart, 'windows_service[Tomcat8]', :immediately
 end
+

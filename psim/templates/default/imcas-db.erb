@@ -4,9 +4,9 @@
 
 flyway.db.scripts.locations=classpath:db/jpa/mssql/patches
 jdbc.driver=com.microsoft.sqlserver.jdbc.SQLServerDriver
-jdbc.url=jdbc:sqlserver://localhost;instanceName=CPSDB;databaseName=imcas;integratedSecurity=true;
-jdbc.user=cpsuser
-jdbc.password=cps!user
+jdbc.url=<%= @connection_url %>
+jdbc.user=<%= @db_user %>
+jdbc.password=<%= @db_password %>
 jdbc.databaseType=MSSQL
 
 hibernate.dialect=com.samsung.imcas.jpa.hibernate.SQLServer2012Dialect
