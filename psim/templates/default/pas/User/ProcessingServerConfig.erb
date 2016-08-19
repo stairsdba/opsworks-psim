@@ -1,0 +1,71 @@
+<pasProcessingServerConfig>
+	<ponConfId/>
+	<defaultEncoding>-1</defaultEncoding>
+	<pasCommonConfig>
+		<installPath>C:\Program Files\PrinterOn Corporation\PrintAnywhere\</installPath>
+		<dataPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\</dataPath>
+		<serialNumber><%= node['psim'][node['hostname']]['serialnbr']['pas'] %></serialNumber>
+		<phxRecycleCap>0</phxRecycleCap>
+		<standAloneServer>0</standAloneServer>
+		<enableLogging>1</enableLogging>
+		<logFilePath>C:\ProgramData\PrinterOn Corporation\PONData\Logs\PrintAnywhere\</logFilePath>
+		<logRetention>5</logRetention>
+		<logLevel>3</logLevel>
+		<proxyEnabled>0</proxyEnabled>
+		<proxyAddress/>
+		<proxyLogin/>
+		<proxyPassword/>
+		<proxyExceptions/>
+		<proxyIsNTLM>0</proxyIsNTLM>
+		<hideDocName>0</hideDocName>
+		<disableAuthForDocAPI>1</disableAuthForDocAPI>
+		<enableLegacyClientSupport>0</enableLegacyClientSupport>
+		<minimalPTSReporting>0</minimalPTSReporting>
+		<anonymousPTSReporting>0</anonymousPTSReporting>
+		<useLicenseServer>1</useLicenseServer>
+		<licenseServer>tutorial-cps-205291483.us-east-1.elb.amazonaws.com/cps/rest</licenseServer>
+		<nonSSLLicenseServer>127.0.0.1/cps/rest</nonSSLLicenseServer>
+		<autoDetectLicenseServer>0</autoDetectLicenseServer>
+		<actionLogTimerMsecs>6000</actionLogTimerMsecs>
+		<swUID/>
+		<SSVerbose>0</SSVerbose>
+	</pasCommonConfig>
+	<listenPort>5200</listenPort>
+	<mapEmailAddrToNetworkLogin>1</mapEmailAddrToNetworkLogin>
+	<systemMonitorTime>02:30:00</systemMonitorTime>
+	<systemMonitorRun>Daily</systemMonitorRun>
+	<systemMonitorRunDay>Sunday</systemMonitorRunDay>
+	<maxQueueSize>2</maxQueueSize>
+	<keepIdleAppInst>1</keepIdleAppInst>
+	<archiveFailedJobs>1</archiveFailedJobs>
+	<supportsAuthJobs>1</supportsAuthJobs>
+	<jobRecordPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\PrintAnywhereStorage\</jobRecordPath>
+	<archivedJobsPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\ArchivedJobs\</archivedJobsPath>
+	<routerNotifyPort>5009</routerNotifyPort>
+	<routerNotifyRetryInterval>1000</routerNotifyRetryInterval>
+	<routerNotifyTimeout>600000</routerNotifyTimeout>
+	<enableLocalFax>0</enableLocalFax>
+	<localFaxOutputFileType>0</localFaxOutputFileType>
+	<previewConfig>
+		<accessKey>AKIAIOSFODNN7EXAMPLE</accessKey>
+		<secretKey>wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY</secretKey>
+		<regionEndpoint>http://10.0.0.187:9444/s3</regionEndpoint>
+		<locationConstraint/>
+		<bucket>previewbucket</bucket>
+		<previewFolder>Preview</previewFolder>
+		<previewExpiration>0</previewExpiration>
+		<maxUploadThreads>4</maxUploadThreads>
+		<publishInterval>200</publishInterval>
+		<publishCount>3</publishCount>
+	</previewConfig>
+	<secuPrintMessageTemplate>{sender.value}#${sender.value}#${sender.value}#$삼성전자|프린팅솔루션#$0#$#$프린팅솔루션|{printer.value}#${document.value}</secuPrintMessageTemplate>
+	<maxFileSize>0</maxFileSize>
+	<minFileSize>0</minFileSize>
+	<NatClusteringSupport>0</NatClusteringSupport>
+	<HTTPListenPort>50001</HTTPListenPort>
+	<HTMLViewOutputXSize>816</HTMLViewOutputXSize>
+	<HTMLViewResolution>96</HTMLViewResolution>
+	<HTMLViewOutputYSize>1056</HTMLViewOutputYSize>
+	<HTTPListenerEnable>1</HTTPListenerEnable>
+	<PWCBridgeLogging>0</PWCBridgeLogging>
+</pasProcessingServerConfig>

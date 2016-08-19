@@ -1,0 +1,109 @@
+<pasStatusServerConfig>
+	<pluginListenPort>4768</pluginListenPort>
+	<processingServerListenPort>4778</processingServerListenPort>
+	<reflectionListenPort>4788</reflectionListenPort>
+	<jobRecordPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\JobRecords\</jobRecordPath>
+	<maxRecordAge>1000</maxRecordAge>
+	<maxQueriedRecordAge>15</maxQueriedRecordAge>
+	<maxPendingDispatchRecordAge>10</maxPendingDispatchRecordAge>
+	<enableURLExtensionFilter>0</enableURLExtensionFilter>
+	<retryDispatchOnOfflineServer>0</retryDispatchOnOfflineServer>
+	<reflectJobDataOnly>1</reflectJobDataOnly>
+	<maxQueueSize>50</maxQueueSize>
+	<maxFileSizeKB>51200</maxFileSizeKB>
+	<actionLogsPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\ActionLogs\</actionLogsPath>
+	<systemMonitorTime>02:30:00</systemMonitorTime>
+	<systemMonitorRun>Daily</systemMonitorRun>
+	<systemMonitorRunDay>Sunday</systemMonitorRunDay>
+	<lpdrequestListenerEnable>0</lpdrequestListenerEnable>
+	<lpdrequestListenPort>0</lpdrequestListenPort>
+	<httplistenerEnable>1</httplistenerEnable>
+	<pwcRouterJobTimeout smtp="30" http="10"/>
+	<processingServerList>
+<% @proc_servers.each do |proc_server| %>
+		<ProcessingServer>
+			<serverType>ProcessingServer</serverType>
+			<serverAddress><%= proc_server['private_ip'] %></serverAddress>
+			<serverPort>5200</serverPort>
+			<serverVersion>2500</serverVersion>
+			<serverSerialNumber><%= node['psim'][proc_server['hostname'].upcase]['serialnbr']['pas'] %></serverSerialNumber>
+			<serverState>1</serverState>
+			<totalQueueJobs>0</totalQueueJobs>
+			<useSSLCommunication>0</useSSLCommunication>
+			<productCode>ENC</productCode>
+			<useProxyServer>0</useProxyServer>
+			<useProxyNTLM>0</useProxyNTLM>
+			<enableLocalFax>0</enableLocalFax>
+			<localFaxOutputFileType>0</localFaxOutputFileType>
+			<routerNotifyPort>10050</routerNotifyPort>
+			<routerNotifyRetryInterval>1000</routerNotifyRetryInterval>
+			<routerNotifyTimeout>600000</routerNotifyTimeout>
+			<supportsAuthJobs>0</supportsAuthJobs>
+			<supportHTTPAPI>1</supportHTTPAPI>
+			<HTTPAPIport>0</HTTPAPIport>
+		</ProcessingServer>
+<% end %>
+	</processingServerList>
+	<pasCommonConfig>
+		<installPath>C:\Program Files\PrinterOn Corporation\PrintAnywhere\</installPath>
+		<dataPath>C:\ProgramData\PrinterOn Corporation\PONData\PrintAnywhere\</dataPath>
+		<serialNumber><%= node['psim'][node['hostname']]['serialnbr']['pas'] %></serialNumber>
+		<phxRecycleCap>5000</phxRecycleCap>
+		<standAloneServer>0</standAloneServer>
+		<enableLogging>1</enableLogging>
+		<logFilePath>C:\ProgramData\PrinterOn Corporation\PONData\Logs\PrintAnywhere\</logFilePath>
+		<logRetention>5</logRetention>
+		<logLevel>3</logLevel>
+		<proxyEnabled>0</proxyEnabled>
+		<proxyAddress/>
+		<proxyLogin/>
+		<proxyPassword/>
+		<proxyExceptions/>
+		<proxyIsNTLM>0</proxyIsNTLM>
+		<hideDocName>0</hideDocName>
+		<disableAuthForDocAPI>1</disableAuthForDocAPI>
+		<enableLegacyClientSupport>0</enableLegacyClientSupport>
+		<minimalPTSReporting>0</minimalPTSReporting>
+		<anonymousPTSReporting>0</anonymousPTSReporting>
+		<useLicenseServer>1</useLicenseServer>
+		<licenseServer>tutorial-cps-205291483.us-east-1.elb.amazonaws.com/cps/rest</licenseServer>
+		<nonSSLLicenseServer>127.0.0.1/cps/rest</nonSSLLicenseServer>
+		<autoDetectLicenseServer>0</autoDetectLicenseServer>
+		<actionLogTimerMsecs>6000</actionLogTimerMsecs>
+		<swUID>1000002</swUID>
+		<SSVerbose>0</SSVerbose>
+	</pasCommonConfig>
+	<Integration Type="1">
+		<LookUpUsers URL="http://127.0.0.1/cps/cpsapi" UserName="apiuser" Password="YQBwAGkAcABhAHMAcwB3AG8AcgBkAAAA" APIKey="0A:DE:63:B1:24:05" LookUpEnable="0" DomainList="" DefaultActionOnAPIFailure="0" UserIDFromADDREnable="0" CheckOnlyEmailJobs="1">
+			<Identified_NonGuest ActionMode="0" SendRC="1" SetRCAsJobOwner="0"/>
+			<Identified_Guest ActionMode="0" SendRC="1" SetRCAsJobOwner="0"/>
+			<Unidentified_NonGuest ActionMode="0" SendRC="0" SetRCAsJobOwner="0"/>
+			<Unidentified_Guest ActionMode="0" SendRC="0" SetRCAsJobOwner="0"/>
+		</LookUpUsers>
+	</Integration>
+	<reflectionServerList>
+<% @status_servers.each do |status_server| %>
+		<ReflectionServer>
+			<serverType/>
+			<serverAddress><%= status_server['private_ip'] %></serverAddress>
+			<serverPort>5400</serverPort>
+			<serverState>1</serverState>
+			<serverVersion>2500</serverVersion>
+			<totalQueueJobs>0</totalQueueJobs>
+			<supportHTTPAPI>1</supportHTTPAPI>
+			<useSSLCommunication>0</useSSLCommunication>
+			<productCode>ENC</productCode>
+			<useProxyServer>0</useProxyServer>
+			<useProxyNTLM>0</useProxyNTLM>
+			<enableLocalFax>0</enableLocalFax>
+			<localFaxOutputFileType>0</localFaxOutputFileType>
+			<routerNotifyPort>10050</routerNotifyPort>
+			<routerNotifyRetryInterval>1000</routerNotifyRetryInterval>
+			<routerNotifyTimeout>600000</routerNotifyTimeout>
+			<httpapiport>5400</httpapiport>
+		</ReflectionServer>
+<% end %>
+	</reflectionServerList>
+	<HTTPListenPort>5400</HTTPListenPort>
+	<UseHTTPForReflection>1</UseHTTPForReflection>
+</pasStatusServerConfig>
