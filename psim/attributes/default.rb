@@ -18,3 +18,5 @@ default['psim']['cps']['keystoreSettings'] = 'keystoreFile="${pon.data.root}\Key
 default['psim']['pas']['processing']['layer'] = 'pas'
 default['psim']['pas']['status']['layer'] = 'pas'
 
+default['psim']['s3']['bucket'] = "chef-psim"
+

@@ -86,9 +86,9 @@ action :create do
 
   f = file new_resource.path do
     action :create
-    owner new_resource.owner || ENV['user']
-    group new_resource.group || ENV['user']
-    mode new_resource.mode || '0644'
+    # owner new_resource.owner || ENV['user']
+    # group new_resource.group || ENV['user']
+    # mode new_resource.mode || '0644'
   end
 
   new_resource.updated_by_last_action(download || f.updated_by_last_action?)

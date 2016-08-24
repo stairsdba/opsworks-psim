@@ -63,13 +63,13 @@ template 'StatusServerConfig.xml' do
     variables({
       :proc_servers => proc_servers,
       :status_servers => status_servers,
-	  :license_server => node['psim']['service']['hostname']
+      :license_server => node['psim']['service']['hostname'],
       :psim => node['psim']
     })
 end
 
 cookbook_file 'server.xml' do
-    source 'pas\server.xml'
+    source 'pas/server.xml'
     path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\server.xml"
     action :create
 end
@@ -77,5 +77,11 @@ end
 template 'ProcessingServerConfig.xml' do
     source 'pas/User/ProcessingServerConfig.erb'
     path "#{node['psim']['data_dir']}\\PrintAnywhere\\Config\\User\\ProcessingServerConfig.xml"
+    variables({
+      :proc_servers => proc_servers,
+      :status_servers => status_servers,
+      :license_server => node['psim']['service']['hostname'],
+      :psim => node['psim']
+    })
 end
 

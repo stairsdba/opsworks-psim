@@ -23,8 +23,8 @@
 		<minimalPTSReporting>0</minimalPTSReporting>
 		<anonymousPTSReporting>0</anonymousPTSReporting>
 		<useLicenseServer>1</useLicenseServer>
-		<licenseServer>tutorial-cps-205291483.us-east-1.elb.amazonaws.com/cps/rest</licenseServer>
-		<nonSSLLicenseServer>127.0.0.1/cps/rest</nonSSLLicenseServer>
+		<licenseServer><%= @license_server %>/cps/rest</licenseServer>
+		<nonSSLLicenseServer><%= @license_server %>/cps/rest</nonSSLLicenseServer>
 		<autoDetectLicenseServer>0</autoDetectLicenseServer>
 		<actionLogTimerMsecs>6000</actionLogTimerMsecs>
 		<swUID/>

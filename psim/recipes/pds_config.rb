@@ -51,3 +51,21 @@ windows_service 'PON S3' do
   action [:stop, :configure_startup]
   startup_type :disabled
 end
+
+windows_service 'Print Delivery Station' do
+  service_name 'Print Delivery Station'
+  action :stop
+end
+
+
+s3_file 'Director.properties' do
+
+    bucket node['psim']['s3']['bucket']
+    aws_access_key_id node['psim']['custom_access_key']
+    aws_secret_access_key node['psim']['custom_secret_key']
+    remote_path "#{node['psim'][node['hostname']]['serialnbr']['pds']}/Director.properties"
+    path "#{node['psim']['data_dir']}\\PDS\\client\\Director.properties"
+
+    notifies :start, 'windows_service[Print Delivery Station]', :immediate
+    action :create
+end
