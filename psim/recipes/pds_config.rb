@@ -65,7 +65,10 @@ s3_file 'Director.properties' do
     aws_secret_access_key node['psim']['custom_secret_key']
     remote_path "#{node['psim'][node['hostname']]['serialnbr']['pds']}/Director.properties"
     path "#{node['psim']['data_dir']}\\PDS\\client\\Director.properties"
-
-    notifies :start, 'windows_service[Print Delivery Station]', :immediate
     action :create
+end
+
+windows_service 'Print Delivery Station' do
+  service_name 'Print Delivery Station'
+  action :start
 end
