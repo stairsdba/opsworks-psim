@@ -41,22 +41,22 @@ windows_package 'psim' do
     action :nothing
 end
 
-windows_service 'Tomcat8' do
-    service_name 'Tomcat8'
-    action :restart
-end
+# windows_service 'Tomcat8' do
+    # service_name 'Tomcat8'
+    # action :restart
+# end
 
-windows_service 'StatusServer' do
-    service_name 'PrintAnywhere Status Server'
-    action :start
-end
+# windows_service 'StatusServer' do
+    # service_name 'PrintAnywhere Status Server'
+    # action :start
+# end
 
-windows_service 'ProcessingServer' do
-    service_name 'PrintAnywhere Processing Server'
-    action :start
-end
+# windows_service 'ProcessingServer' do
+    # service_name 'PrintAnywhere Processing Server'
+    # action :start
+# end
 
-windows_service 'Print Delivery Station' do
-    service_name 'Print Delivery Station'
-    action :start
-end
+# windows_service 'Print Delivery Station' do
+    # service_name 'Print Delivery Station'
+    # action :start
+# end

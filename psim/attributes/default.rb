@@ -3,6 +3,7 @@ default['psim']['install_dir'] = "C:\\Program Files (x86)\\PrinterOn Corporation
 default['psim']['data_dir'] = "C:\\ProgramData\\PrinterOn Corporation\\PONData"
 
 default['psim']['service']['hostname'] = "tutorial-cps-205291483.us-east-1.elb.amazonaws.com"
+default['psim']['service']['domain_suffix'] = ".opsworks.pon.internal"
 
 default['psim']['host']['serialnbr']['pas'] = "HMNJ-Y054-XWD6"
 default['psim']['host']['serialnbr']['pds'] = "1YMW-0HDJ-3M2H"
