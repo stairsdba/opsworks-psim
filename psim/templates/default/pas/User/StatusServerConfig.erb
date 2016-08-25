@@ -23,7 +23,7 @@
 <% @proc_servers.each do |proc_server| %>
 		<ProcessingServer>
 			<serverType>ProcessingServer</serverType>
-			<serverAddress><%= proc_server['hostname'] %><%= node['psim']['service']['domain_suffix'] </serverAddress>
+			<serverAddress><%= proc_server['hostname'] %><%= node['psim']['service']['domain_suffix'] %></serverAddress>
 			<serverPort>5200</serverPort>
 			<serverVersion>2500</serverVersion>
 			<serverSerialNumber><%= node['psim'][proc_server['hostname'].upcase]['serialnbr']['pas'] %></serverSerialNumber>
@@ -85,7 +85,7 @@
 <% @status_servers.each do |status_server| %>
 		<ReflectionServer>
 			<serverType/>
-			<serverAddress><%= status_server['hostname'] %><%= node['psim']['service']['domain_suffix']</serverAddress>
+			<serverAddress><%= status_server['hostname'] %><%= node['psim']['service']['domain_suffix'] %></serverAddress>
 			<serverPort>5400</serverPort>
 			<serverState>1</serverState>
 			<serverVersion>2500</serverVersion>
