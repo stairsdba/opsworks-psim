@@ -8,10 +8,10 @@ windows_service 'PrintAnywhere Server Agent' do
   action :stop
 end
 
-# windows_service 'PASPort' do
-  # service_name 'PASPort'
-  # action :stop
-# end
+windows_service 'PASPort' do
+  service_name 'PASPort'
+  action :stop
+end
 
 windows_service 'PrintAnywhere Processing Server' do
   service_name 'PrintAnywhere Processing Server'
@@ -45,8 +45,8 @@ cookbook_file 'server.xml' do
     source 'pas/server.xml'
     path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\server.xml"
     action :create
-    notifies :start, 'windows_service[Tomcat8]', :immediate
-    notifies :start, 'windows_service[PrintAnywhere Server Agent]', :immediate	
+    # notifies :start, 'windows_service[Tomcat8]', :immediate
+    # notifies :start, 'windows_service[PrintAnywhere Server Agent]', :immediate	
 end
 
 template 'ProcessingServerConfig.xml' do
@@ -58,7 +58,7 @@ template 'ProcessingServerConfig.xml' do
       :license_server => node['psim']['service']['hostname'],
       :psim => node['psim']
     })
-    notifies :start, 'windows_service[PrintAnywhere Processing Server]', :immediate
+    # notifies :start, 'windows_service[PrintAnywhere Processing Server]', :immediate
 end
 
 template 'StatusServerConfig.xml' do
@@ -70,6 +70,31 @@ template 'StatusServerConfig.xml' do
       :license_server => node['psim']['service']['hostname'],
       :psim => node['psim']
     })
-    notifies :start, 'windows_service[PrintAnywhere Status Server]', :immediate
+    # notifies :start, 'windows_service[PrintAnywhere Status Server]', :immediate
 end
 
+
+windows_service 'Tomcat8' do
+  service_name 'Tomcat8'
+  action :start
+end
+
+windows_service 'PrintAnywhere Server Agent' do
+  service_name 'PrintAnywhere Server Agent'
+  action :start
+end
+
+windows_service 'PASPort' do
+  service_name 'PASPort'
+  action :start
+end
+
+windows_service 'PrintAnywhere Processing Server' do
+  service_name 'PrintAnywhere Processing Server'
+  action :start
+end
+
+windows_service 'PrintAnywhere Status Server' do
+  service_name 'PrintAnywhere Status Server'
+  action :start
+end
