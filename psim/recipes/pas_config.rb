@@ -1,46 +1,30 @@
-# windows_service 'Bonjour Service' do
-  # service_name 'Bonjour Service'
-  # action [:stop, :configure_startup]
-  # startup_type :disabled
-# end
+windows_service 'Tomcat8' do
+  service_name 'Tomcat8'
+  action :stop
+end
 
-# windows_service 'Print Delivery Gateway' do
-  # service_name 'Print Delivery Gateway'
-  # action [:stop, :configure_startup]
-  # startup_type :disabled
-# end
+windows_service 'PrintAnywhere Server Agent' do
+  service_name 'PrintAnywhere Server Agent'
+  action :stop
+end
 
 # windows_service 'PASPort' do
   # service_name 'PASPort'
-  # action [:start]
+  # action :stop
 # end
 
-# windows_service 'PrintAnywhere Processing Server' do
-  # service_name 'PrintAnywhere Processing Server'
-  # action [:start]
-# end
+windows_service 'PrintAnywhere Processing Server' do
+  service_name 'PrintAnywhere Processing Server'
+  action :stop
+end
 
-# windows_service 'PrintAnywhere Server Agent' do
-  # service_name 'PrintAnywhere Server Agent'
-  # action [:start]
-# end
+windows_service 'PrintAnywhere Status Server' do
+  service_name 'PrintAnywhere Status Server'
+  action :stop
+end
 
-# windows_service 'PrintAnywhere Status Server' do
-  # service_name 'PrintAnywhere Status Server'
-  # action [:start]
-# end
 
-# windows_service 'SQL Agent' do
-  # service_name 'SQL Agent'
-  # action [:stop, :configure_startup]
-  # startup_type :disabled
-# end
 
-# windows_service 'PON S3' do
-  # service_name 'PON S3'
-  # action [:stop, :configure_startup]
-  # startup_type :disabled
-# end
 
 # Get the list of servers in the Processing Server Layer
 proc_layer = search("aws_opsworks_layer","shortname:#{node['psim']['pas']['processing']['layer']}").first
@@ -57,21 +41,12 @@ Chef::Log.info("********** The Status layer's shortname is '#{status_layer['shor
 
 status_servers = search("aws_opsworks_instance","layer_ids:#{status_layer['layer_id']}")
 
-template 'StatusServerConfig.xml' do
-    source 'pas/User/StatusServerConfig.erb'
-    path "#{node['psim']['data_dir']}\\PrintAnywhere\\Config\\User\\StatusServerConfig.xml"
-    variables({
-      :proc_servers => proc_servers,
-      :status_servers => status_servers,
-      :license_server => node['psim']['service']['hostname'],
-      :psim => node['psim']
-    })
-end
-
 cookbook_file 'server.xml' do
     source 'pas/server.xml'
     path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\server.xml"
     action :create
+    notifies :start, 'windows_service[Tomcat8]', :immediate
+    notifies :start, 'windows_service[PrintAnywhere Server Agent]', :immediate	
 end
 
 template 'ProcessingServerConfig.xml' do
@@ -83,5 +58,18 @@ template 'ProcessingServerConfig.xml' do
       :license_server => node['psim']['service']['hostname'],
       :psim => node['psim']
     })
+    notifies :start, 'windows_service[PrintAnywhere Processing Server]', :immediate
+end
+
+template 'StatusServerConfig.xml' do
+    source 'pas/User/StatusServerConfig.erb'
+    path "#{node['psim']['data_dir']}\\PrintAnywhere\\Config\\User\\StatusServerConfig.xml"
+    variables({
+      :proc_servers => proc_servers,
+      :status_servers => status_servers,
+      :license_server => node['psim']['service']['hostname'],
+      :psim => node['psim']
+    })
+    notifies :start, 'windows_service[PrintAnywhere Status Server]', :immediate
 end
 
