@@ -2,7 +2,7 @@ default['psim']['installer_url'] = "https://s3.amazonaws.com/chef-psim/PSIM.exe"
 default['psim']['install_dir'] = "C:\\Program Files (x86)\\PrinterOn Corporation"
 default['psim']['data_dir'] = "C:\\ProgramData\\PrinterOn Corporation\\PONData"
 
-default['psim']['service']['hostname'] = "tutorial-cps-205291483.us-east-1.elb.amazonaws.com"
+default['psim']['service']['hostname'] = "cps.tutorial.opsworks.pon.internal"
 default['psim']['service']['domain_suffix'] = ".opsworks.pon.internal"
 
 default['psim']['host']['serialnbr']['pas'] = "HMNJ-Y054-XWD6"
@@ -18,6 +18,7 @@ default['psim']['cps']['keystoreSettings'] = 'keystoreFile="${pon.data.root}\Key
 
 default['psim']['pas']['processing']['layer'] = 'pas'
 default['psim']['pas']['status']['layer'] = 'pas'
+default['psim']['pas']['status']['hostname'] = 'pas.tutorial.opsworks.pon.internal'
 
 default['psim']['s3']['bucket'] = "chef-psim"
 

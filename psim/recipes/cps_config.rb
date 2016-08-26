@@ -1,8 +1,3 @@
-windows_service 'Tomcat8' do
-  supports :status => true
-  action :start
-end
-
 windows_service 'Bonjour Service' do
   supports :status => true
   action :stop
@@ -63,12 +58,20 @@ windows_service 'SQL Agent' do
   startup_type :disabled
 end
 
+windows_service 'Tomcat8' do
+  supports :status => true
+  action :stop
+end
+
 # Configure cps to connect to the RDS database
 rds_db_instance = search("aws_opsworks_rds_db_instance").first
 
-cookbook_file 'cps_config.xml' do
-    source 'cps_config.xml'
+template 'cps_config.xml' do
+    source 'cps_config.erb'
     path "#{node['psim']['install_dir']}\\Apache Tomcat\\Conf\\cps_config.xml"
+    variables({
+       :pas_url => node['psim']['pas']['hostname']
+    })
     action :create
 end
 
@@ -105,3 +108,7 @@ template 'server.xml' do
   notifies :restart, 'windows_service[Tomcat8]', :immediately
 end
 
+windows_service 'Tomcat8' do
+  supports :status => true
+  action :start
+end
