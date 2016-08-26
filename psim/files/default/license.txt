@@ -13,17 +13,17 @@
 #      solely for use at:
 #           opsworks-test 
 #
-# Created: Fri Aug 12 15:32:55 EDT 2016
+# Created: Fri Aug 26 09:02:53 EDT 2016
 # 
 # opsworks-test LICENSE FILE
 
-MD5 = ddd96400d50d31bcb9302d0db66da0b3
+MD5 = bdf7d6c9775e1b92f2f49334bf9cf1c7
 
 [License]
 Version = 2.0
 Type = Printer
 Edition = Enterprise
-Start = 1471030375564
+Start = 1472216573913
 End = 1502564864000
 ValidationURL = https://secure1.printeron.net/api/restful/v1/license/hashValidate
 Printers = 3
@@ -49,10 +49,12 @@ APIsiteAuth = ZF42WStr
 AdminEmail = jstairs@printeron.com
 
 [PrintAnywhere] 
-Name.1=box 2
-SerialNumber.1=WYC7-RJHN-TT4B
-Name.2=Enterprise PrintAnywhere Server
-SerialNumber.2=CUK4-KK4M-3RFB
+Name.1=box 3
+SerialNumber.1=SQ7J-P0W1-7E08
+Name.2=box 2
+SerialNumber.2=WYC7-RJHN-TT4B
+Name.3=Enterprise PrintAnywhere Server
+SerialNumber.3=CUK4-KK4M-3RFB
 
 
 [PrintDeliveryStation]
